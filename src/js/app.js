@@ -1,39 +1,49 @@
 console.log('my-note app.js');
 
-var $menu = $('#menu');
+(function($, global, app) {
+    var $menu = $('#menu');
+    // new note button event listener
+    $menu.on('click', '.btn-newnote', function(event){
+        console.log('new note');
 
-// new note button event listener
-$menu.on('click', '.btn-newnote', function(event){
-    console.log('new note');
+    	var $memo = $('#memo');
+    	$memo.val(null);
+    });
 
-	var $memo = $("#memo");
-	$memo.val(null);
-});
+    // save note button event listener
+    $menu.on('click', '.btn-savenote', function(event){
+        console.log('save note');
 
-// save note button event listener
-$menu.on('click', '.btn-savenote', function(event){
-    console.log('save note');
-});
+        var $memo = $('#memo');
+        var data = $memo.val();
 
-// about button event listener
-$menu.on('click', '.btn-about', function(event){
-    console.log('about');
+        app.collection.save(data);
+    });
 
-    var $layer = $('#layer');
+    // about button event listener
+    $menu.on('click', '.btn-about', function(event){
+        console.log('about');
 
-    if($layer.hasClass('PopupLayer')) {
-        toggleLayer($layer, 'off');
-    } else {
-        window.onresize = ResizingLayer;
-        toggleLayer($layer, 'on');
+        var $layer = $('#layer');
+
+        toggleLayer($layer);
+    });
+
+    // full screen button event listener
+    $menu.on('click', '.btn-full', function(event){
+        console.log('full screen');
+
+        var output = document.getElementById("output");
+
+    	toggleFullScreen(output);
+    });
+
+    var initData = app.util.storage.load();
+    if(initData) {
+        var $memo = $('#memo');
+        $memo.val(initData.memo);
+
+        app.collection.set(initData);
     }
-});
 
-// full screen button event listener
-$menu.on('click', '.btn-full', function(event){
-    console.log('full screen');
-
-    var output = document.getElementById("output");
-
-	toggleFullScreen(output);
-});
+})(jQuery, window, note);

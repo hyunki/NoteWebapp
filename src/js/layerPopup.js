@@ -1,11 +1,12 @@
 //레이어 가운데 띄우고 마스크 띄우기
-function toggleLayer( obj, s ) {
-    // console.log('toggle popup layer');
-
+function toggleLayer(obj) {
     var zidx = $("#lay_mask").css("z-index");
- 
-    if(s == "on") {
+
+    if(!obj.hasClass('PopupLayer')) {
         console.log('on popup layer');
+
+        ResizingLayer();
+
         //화면중앙에 위치시키기
         var left = ( $(window).scrollLeft() + ($(window).width() - obj.width()) / 2 );
         var top = ( $(window).scrollTop() + ($(window).height() - obj.height()) / 2 );
@@ -23,9 +24,7 @@ function toggleLayer( obj, s ) {
  
         wrapWindowByMask();//배경 깔기
         obj.show();//레이어 띄우기
-    }
- 
-    if(s == "off") {
+    } else {
         console.log('off popup layer');
         if($(".PopupLayer").length > 1) {
             var layer_idx = zidx - 10;
@@ -34,10 +33,6 @@ function toggleLayer( obj, s ) {
             $("#lay_mask").hide();
         }
  
-        obj.removeClass("PopupLayer").hide();
-    }
- 
-    if(s == "off2") { //레이어에서 다른 레이어를 띄울 경우 마스크는 안닫기 위한 처리
         obj.removeClass("PopupLayer").hide();
     }
 }
@@ -58,7 +53,6 @@ function wrapWindowByMask() {
  
 // 사이즈 리사이징
 function ResizingLayer() {
-    console.log('resizing');
     if($("#lay_mask").css("display") == "block") {
         //화면의 높이와 너비를 구한다. 
         var maskHeight = $(document).height();
