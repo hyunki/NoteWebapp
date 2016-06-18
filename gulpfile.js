@@ -20,11 +20,11 @@ gulp.task('concat:js', function() {
     .pipe(gulp.dest('dist/'));
 });
 
-gulp.task('copy:html', function() {
-  return gulp.src('index.html')
-    .pipe(connect.reload())
-    .pipe(gulp.dest('dist/'));
-});
+// gulp.task('copy:html', function() {
+//   return gulp.src('index.html')
+//     .pipe(connect.reload())
+//     .pipe(gulp.dest('dist/'));
+// });
 
 gulp.task('copy:lib', function() {
   return gulp.src('src/lib/**/*')
