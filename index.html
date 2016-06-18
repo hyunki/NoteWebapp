@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>My Note</title>
-  <link rel="stylesheet" href="src/dist/app.css">
+  <link rel="stylesheet" href="app.css">
 </head>
 <body>
 <div id="output">
@@ -21,10 +21,28 @@
   <div id="layer" class="">
     <button class="btn-aboutClose" onclick="toggleLayer($('#layer'));">X</button>
     <div id="text">
-      <h2>
-        hello world!!
-      </h2>
-      Hi! I'm hyunki!
+      <h1>
+        Note Webapp
+      </h1>
+      <br><br><br>
+      <ul>
+        <b>상단 메뉴(.menu) 버튼 구성</b>
+        <ul>
+          <li>새노트: textarea(#memo)내용이 모두 지워짐</li>
+          <li>노트저장: localStorage에 textarea내용 저장</li>
+          <li>about: 클릭하면 레이어(div)로 center에 어플리케이션정보 나오도록 처리(토글)</li>
+          <li>전체화면: 버튼 추가하고 누르면 전체화면 모드로 전환(토글)</li>
+        </ul>
+      </ul>
+      <ul>
+        <b>최초 진입시 localStorage에 저장된 내용이 있으면 textarea에 표시</b><br>
+        <b>package.json 작성</b><br>
+        <b>gulp로 개발환경 구축</b><br>
+      </ul>
+      <br><br>
+      <b>Version 16.06.16.1</b><br>
+      <b>제주대학교 MICE-IT 2016</b><br>
+      <b>컴퓨터교육과 이현기</b>     
     </div>
   </div>
 
@@ -33,7 +51,7 @@
   </div>
 </div>
 
-<script src="src/dist/lib/jquery-1.11.2.js"></script>
-<script src="src/dist/app.js"></script>
+<script src="lib/jquery-1.11.2.js"></script>
+<script src="app.js"></script>
 </body>
 </html>
