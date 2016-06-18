@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="kr">
+<head>
+  <meta charset="UTF-8">
+  <title>My Note</title>
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+<div id="output">
+  <div class="header">
+    <h1>My Note</h1>
+    <div class="menu" id="menu">
+      <button class="btn-newnote">새노트</button>
+      <button class="btn-savenote">노트저장</button>
+      <button class="btn-about">about</button>
+      <button class="btn-full">전체화면</button>
+    </div>
+  </div>
+
+  <div id="lay_mask"></div>
+  <div id="layer" class="">
+    <button class="btn-aboutClose" onclick="toggleLayer($('#layer'));">X</button>
+    <div id="text">
+      <h2>
+        hello world!!
+      </h2>
+      Hi! I'm hyunki!
+    </div>
+  </div>
+
+  <div class="container">
+    <textarea id="memo" placeholder="내용을 입력하세요"></textarea>
+  </div>
+</div>
+
+<script src="lib/jquery-1.11.2.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

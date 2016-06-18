@@ -21,7 +21,7 @@ gulp.task('concat:js', function() {
 });
 
 gulp.task('copy:html', function() {
-  return gulp.src('src/index.html')
+  return gulp.src('index.html')
     .pipe(connect.reload())
     .pipe(gulp.dest('dist/'));
 });
